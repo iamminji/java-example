@@ -18,13 +18,14 @@ public class ProducerConsumerExample {
         @Override
         public void run() {
             int i = 0;
-            while (true) {
+            while (!Thread.currentThread().isInterrupted()) {
                 try {
                     System.out.println("{" + Thread.currentThread().getName() + "}, Add item: " + i);
                     queue.put(i++);
                     Thread.sleep((long) (Math.random() * 5000));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                    Thread.currentThread().interrupt();
                 }
             }
         }
@@ -40,12 +41,13 @@ public class ProducerConsumerExample {
 
         @Override
         public void run() {
-            while (true) {
+            while (!Thread.currentThread().isInterrupted()) {
                 try {
                     int item = queue.take();
                     System.out.println("{" + Thread.currentThread().getName() + "}, Pop item: " + item);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                    Thread.currentThread().interrupt();
                 }
             }
         }
@@ -56,7 +58,7 @@ public class ProducerConsumerExample {
         ExecutorService producers = Executors.newFixedThreadPool(10);
         ExecutorService consumers = Executors.newFixedThreadPool(10);
 
-        BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(100);
+        BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
 
         for (int i = 0; i < 10; i++) {
             producers.submit(new Producer(queue));
