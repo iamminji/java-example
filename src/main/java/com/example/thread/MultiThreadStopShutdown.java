@@ -1,4 +1,4 @@
-package com.example.concurrency;
+package com.example.thread;
 
 import java.util.concurrent.*;
 
