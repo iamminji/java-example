@@ -18,11 +18,11 @@ import java.util.NavigableMap;
 /**
  *
  */
-public class HBaseSimpleExample {
+public class HBaseScanAndGetExample {
 
     private final Table table;
 
-    public HBaseSimpleExample(Configuration configuration) throws IOException {
+    public HBaseScanAndGetExample(Configuration configuration) throws IOException {
         // HTable 은 Deprecated 되었기 때문에 Connection 을 사용해야 한다.
         Connection connection = ConnectionFactory.createConnection(configuration);
         this.table = connection.getTable(TableName.valueOf("table-name"));
@@ -66,7 +66,7 @@ public class HBaseSimpleExample {
         configuration.set("hbase.zookeeper.quorum", "q1,q2,q3");
 
 
-        HBaseSimpleExample example = new HBaseSimpleExample(configuration);
+        HBaseScanAndGetExample example = new HBaseScanAndGetExample(configuration);
 
         // sample 이라는 rowkey 로 result 값을 가져왔다.
         // rowkey 컬럼 데이터 찾는 부분은 아래 처럼 진행할 수 있다.

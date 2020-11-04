@@ -1,4 +1,4 @@
-package com.example.thread;
+package com.example.thread.terminate;
 
 import java.util.concurrent.*;
 
