@@ -2,7 +2,7 @@ package com.example.pattern;
 
 import java.util.concurrent.CountDownLatch;
 
-public class Singleton {
+public class SingletonExample {
 
     public static class SyncTickets {
         private static int ticket;
