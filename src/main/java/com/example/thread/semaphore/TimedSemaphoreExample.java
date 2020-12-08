@@ -42,11 +42,14 @@ public class TimedSemaphoreExample {
 
         // should be 0
         System.out.println(example.availableSlots());
+        // sould be false
         System.out.println(example.tryAdd());
         Thread.sleep(5000);
-        // should be false
+        // sould be 3
         System.out.println(example.availableSlots());
+        // should be true
         System.out.println(example.tryAdd());
 
+        example.timedSemaphore.shutdown();
     }
 }
