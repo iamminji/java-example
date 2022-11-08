@@ -7,6 +7,7 @@ import org.example.hexagonal.domain.specification.NetworkAvailabilitySpecificati
 import org.example.hexagonal.domain.specification.RouterTypeSpecification;
 import org.example.hexagonal.domain.vo.IP;
 import org.example.hexagonal.domain.vo.Network;
+import org.example.hexagonal.domain.vo.RouterId;
 
 public class NetworkOperation {
 
@@ -28,6 +29,10 @@ public class NetworkOperation {
             Network network = router.createNetwork(address, name, cidr);
             router.addNetworkToSwitch(network);
         }
+    }
 
+    public static Router createNewNetwork(Router router, Network network) {
+        // TODO
+        return null;
     }
 }
