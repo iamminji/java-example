@@ -24,8 +24,7 @@ hs_err_pid*
 
 .gradle/
 .idea/
-.gradle/
-.idea/
 
 gradle-wrapper.jar
 build/
+target/
