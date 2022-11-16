@@ -1,4 +1,4 @@
-package com.example.ddd.domain.order.exception;
+package com.example.ddd.order.exception;
 
 public class OrderNotFoundException extends RuntimeException {
 

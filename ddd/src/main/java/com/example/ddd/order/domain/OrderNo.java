@@ -1,4 +1,4 @@
-package com.example.ddd.domain.order;
+package com.example.ddd.order.domain;
 
 public class OrderNo {
 

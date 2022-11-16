@@ -1,7 +1,7 @@
-package com.example.ddd.domain.order;
+package com.example.ddd.order.domain;
 
-import com.example.ddd.domain.money.Money;
-import com.example.ddd.domain.product.Product;
+import com.example.ddd.money.domain.Money;
+import com.example.ddd.product.domain.Product;
 
 public class OrderLine {
 

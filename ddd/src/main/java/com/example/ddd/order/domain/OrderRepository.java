@@ -1,4 +1,4 @@
-package com.example.ddd.infrastructure;
+package com.example.ddd.order.domain;
 
 public interface OrderRepository<T> {
 

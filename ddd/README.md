@@ -23,5 +23,32 @@ HTTP client를 이용해 다른 API를 호출하는 것도 처리한다.
 
 인프라스트럭처 영역은 논리적인 개념을 표현하기 보다는 실제 구현을 다룬다.
 
-# DIP
-Dependency Inversion Principle
+# DIP (Dependency Inversion Principle)
+저수준 모듈이 고수준 모듈에 의존하는 경우를 DIP, 의존 역전 원칙이라고 부른다.
+DIP를 적용하면 infrastructure 영역에 의존할 때 발생했던, 구현 교체가 어렵다는 것과 테스트가 어려운 문제 모두를 해결할 수 있다.
+
+Repository 같은 건 인터페이스(Domain/Application) 가 고수준이고 구현체(Infrastructure)가 저수준이다.
+이 경우 저수준인 Infrastructure 가 고수준인 Domain/Application Layer에 의존성(상속/구현) 을 갖게 되는 구조가 되므로 Domain/Application Layer에 영향을 주지 않거나
+최소화하면서 변경이 가능하게 된다.
+
+> DIP 를 무리 하게 할 필요는 없고 점진적으로 추상화하는 방안도 고려해볼 것
+
+# DDD Component
+
+## Entity
+unique identifier 를 갖는 객체로 자신의 life cycle을 갖는다.
+
+__DB Entity 와는 다르다!__
+
+## Value
+unique identifier 를 갖지 않는 객체로 하나인 값을 표현할 때 사용한다.
+
+__Immutable 인 편이 좋다.__
+
+## Aggregate
+연관된 Entity 와 Value 를 개념적으로 하나로 묶은 것이다.
+
+## Repository
+
+## Domain Service
+특정 Entity에 속하지 않은 도메인 로직을 제공한다.

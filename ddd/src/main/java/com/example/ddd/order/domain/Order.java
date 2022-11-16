@@ -1,7 +1,7 @@
-package com.example.ddd.domain.order;
+package com.example.ddd.order.domain;
 
-import com.example.ddd.domain.money.Money;
-import com.example.ddd.domain.shipping.ShippingInfo;
+import com.example.ddd.money.domain.Money;
+import com.example.ddd.shipping.domain.ShippingInfo;
 import java.util.List;
 
 // Order Entity

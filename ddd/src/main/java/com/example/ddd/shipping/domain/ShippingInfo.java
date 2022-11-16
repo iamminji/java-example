@@ -1,4 +1,4 @@
-package com.example.ddd.domain.shipping;
+package com.example.ddd.shipping.domain;
 
 public class ShippingInfo {
     // Value 타입은 개념적으로 완전한 하나를 표현할 때 사용한다.

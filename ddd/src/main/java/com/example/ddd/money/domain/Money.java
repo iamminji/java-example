@@ -1,4 +1,4 @@
-package com.example.ddd.domain.money;
+package com.example.ddd.money.domain;
 
 public class Money {
 

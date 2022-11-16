@@ -1,8 +1,8 @@
-package com.example.ddd.application;
+package com.example.ddd.order.domain.service;
 
-import com.example.ddd.domain.order.Order;
-import com.example.ddd.domain.order.exception.OrderNotFoundException;
-import com.example.ddd.infrastructure.OrderRepository;
+import com.example.ddd.order.domain.Order;
+import com.example.ddd.order.domain.OrderRepository;
+import com.example.ddd.order.exception.OrderNotFoundException;
 
 public class CancelOrderService {
 
