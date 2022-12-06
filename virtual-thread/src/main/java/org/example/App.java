@@ -1,12 +1,11 @@
 package org.example;
 
-
 import java.util.Random;
 
 public class App {
 
     public static void main(String[] args) {
-        boolean vThreads = true;
+        boolean vThreads = false;
         System.out.println("Using vThreads: " + vThreads);
 
         long start = System.currentTimeMillis();
