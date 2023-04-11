@@ -2,7 +2,7 @@ package com.example.ddd.order;
 
 import com.example.ddd.customer.domain.Customer;
 import com.example.ddd.money.domain.Money;
-import com.example.ddd.order.domain.OrderLine;
+import com.example.ddd.order.domain.OrderLines;
 import com.example.ddd.order.domain.RuleDiscounter;
 import java.util.List;
 
@@ -14,9 +14,9 @@ public class CalculateDiscountService {
         this.ruleDiscounter = ruleDiscounter;
     }
 
-    public Money calculateDiscount(List<OrderLine> orderLineList, String customerId) {
+    public Money calculateDiscount(List<OrderLines> orderLinesList, String customerId) {
         Customer customer = findCustomer(customerId);
-        return ruleDiscounter.applyRules(customer, orderLineList);
+        return ruleDiscounter.applyRules(customer, orderLinesList);
     }
 
     // temp

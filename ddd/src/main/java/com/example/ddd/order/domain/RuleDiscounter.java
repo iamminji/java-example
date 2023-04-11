@@ -5,5 +5,5 @@ import com.example.ddd.money.domain.Money;
 import java.util.List;
 
 public interface RuleDiscounter {
-    Money applyRules(Customer customer, List<OrderLine> orderLineList);
+    Money applyRules(Customer customer, List<OrderLines> orderLinesList);
 }

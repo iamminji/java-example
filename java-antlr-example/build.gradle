@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'antlr'
+    id 'idea'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.antlr:antlr4-runtime:4.9.3'
+    antlr "org.antlr:antlr4:4.9.3"
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+generateGrammarSource {
+    maxHeapSize = "128m"
+    arguments += ['-package', 'org.example.parser', "-visitor"]
+
+    doLast {
+        println "Copying generated grammar lexer/parser files to main directory."
+        copy {
+            from "${buildDir}/generated-src/antlr/main"
+            include '*.*'
+            into 'build/generated-src/antlr/main/org/example/parser'
+        }
+
+        project.delete fileTree('build/generated-src/antlr/main').include('*.*')
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

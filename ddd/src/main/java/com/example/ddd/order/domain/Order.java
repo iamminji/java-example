@@ -1,20 +1,21 @@
 package com.example.ddd.order.domain;
 
 import com.example.ddd.money.domain.Money;
-import com.example.ddd.shipping.domain.ShippingInfo;
+
 import java.util.List;
 
 // Order Entity
+// Aggregate Root Domain Entity
 public class Order {
 
     private OrderNo orderNumber;
 
-    private List<OrderLine> orderLines;
+    private OrderLines orderLines;
     private Money totalAmounts;
     private ShippingInfo shippingInfo;
     private OrderState orderState;
 
-    public Order(List<OrderLine> orderLines, ShippingInfo shippingInfo) {
+    public Order(List<OrderLines> orderLines, ShippingInfo shippingInfo) {
         setOrderLines(orderLines);
         setShippingInfo(shippingInfo);
     }
@@ -23,19 +24,20 @@ public class Order {
         if (shippingInfo == null) {
             throw new IllegalArgumentException("no ShippingInfo");
         }
+        // Value가 불변이면 새로운 객체를 할당해서 값을 변경해야 한다.
         this.shippingInfo = shippingInfo;
     }
 
-    private void setOrderLines(List<OrderLine> orderLines) {
+    private void setOrderLines(OrderLines orderLines) {
         verifyAtLeastOneOrMoreOrderLines(orderLines);
         this.orderLines = orderLines;
         calculateTotalAmounts();
 
     }
 
-    private void verifyAtLeastOneOrMoreOrderLines(List<OrderLine> orderLines) {
-        if (orderLines == null || orderLines.isEmpty()) {
-            throw new IllegalArgumentException("no OrderLine");
+    private void verifyAtLeastOneOrMoreOrderLines(OrderLines orderLines) {
+        if (orderLines == null) {
+            throw new IllegalArgumentException("no OrderLines");
         }
     }
 
@@ -53,12 +55,16 @@ public class Order {
 
     }
 
+    public void changeOrderLines(List<OrderLines> newLines) {
+    }
+
     /**
      * 배송지 정보 변경하기
      *
      * @param newShipping
      */
     public void changeShippingInfo(ShippingInfo newShipping) {
+        // 애그리거트 루트는 도메인 규칙을 구현한 기능을 제공한다.
         verifyNotYetShipped();
         setShippingInfo(newShipping);
     }

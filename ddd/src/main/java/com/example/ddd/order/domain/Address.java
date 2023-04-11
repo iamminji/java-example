@@ -1,4 +1,4 @@
-package com.example.ddd.shipping.domain;
+package com.example.ddd.order.domain;
 
 public class Address {
 
